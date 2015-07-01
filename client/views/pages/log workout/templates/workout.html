@@ -1,0 +1,27 @@
+<template name="workout">
+
+        {{#each lift}}
+            <!--<input class="removeBut" type="button" value="Remove"/>-->
+            <div class="lift" data-id="{{_id}}"><i class="fa fa-minus-circle removeBut"></i> {{liftName}}
+                {{#each sets}}
+                    {{>setConfig}}
+                {{/each}}
+
+            </div>
+        {{/each}}
+
+
+        <button id="finish">Finish Workout</button>
+
+
+</template>
+
+<template name="setConfig">
+    <div>
+        <label for=""> reps <input data-type="reps" data-setnum="{{setNum}}" class='setConfig' value="{{reps}}" type="text"/></label>
+        <label for=""> weight <input data-type="weight" data-setnum="{{setNum}}" class='setConfig' value="{{weight}}" type="text"/></label>
+
+
+    </div>
+
+</template>
