@@ -12,8 +12,8 @@ Router.route('/logWorkout', function () {
     this.render('logWorkout');
 });
 
-Router.route('/pageTwo', function () {
-    this.render('pageTwo');
+Router.route('/completedWorkouts', function () {
+    this.render('completedWorkouts');
 });
 
 Router.route('/', function () {

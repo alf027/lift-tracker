@@ -25,20 +25,27 @@ Template.workout.events({
   'click #finish': function () {
     //console.log workout(workout.find().fetch());
     var curDate = new Date;
-    var completed = workout.find().fetch();
+    curDate = (curDate.getMonth() + 1) + '/' + curDate.getDate() + '/' +  curDate.getFullYear();
+    console.log(curDate);
+    var completed = {};
+    completed.lifts = workout.find().fetch();
     completed.dateFinished = curDate;
     console.log(completed);
+    Meteor.call('insertCompletedWorkout',completed);
+
     //
-    CompletedWorkouts.insert(completed, function (err, doc) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log(doc)
-        console.log(CompletedWorkouts.find().fetch());
-      }
-    });
+    //CompletedWorkouts.insert(completed, function (err, doc) {
+    //  if (err) {
+    //    console.log(err)
+    //  } else {
+    //    workout.remove({});
+    //    console.log(doc);
+    //    console.log(CompletedWorkouts.find().fetch());
+    //  }
+    //});
 
   }
 })
+
 
 

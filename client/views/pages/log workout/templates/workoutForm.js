@@ -16,58 +16,42 @@ Template.workoutForm.events({
     }
 
     workout.insert({liftName: liftName.value, numSets: numSets, sets: setsArr});
+    liftName.value = '';
+    document.getElementById('numSets').value ='';
 
   }
 });
 
 
-  var presidents = [
-    "George Washington",
-    "John Adams",
-    "Thomas Jefferson",
-    "James Madison",
-    "James Monroe",
-    "John Quincy Adams",
-    "Andrew Jackson",
-    "Martin Van Buren",
-    "William Henry Harrison",
-    "John Tyler",
-    "James Knox Polk",
-    "Zachary Taylor",
-    "Millard Fillmore",
-    "Franklin Pierce",
-    "James Buchanan",
-    "Abraham Lincoln",
-    "Andrew Johnson",
-    "Ulysses Simpson Grant",
-    "Rutherford Birchard Hayes",
-    "James Abram Garfield",
-    "Chester Alan Arthur",
-    "Grover Cleveland",
-    "Benjamin Harrison",
-    "Grover Cleveland",
-    "William McKinley",
-    "Theodore Roosevelt",
-    "William Howard Taft",
-    "Woodrow Wilson",
-    "Warren Gamaliel Harding",
-    "Calvin Coolidge",
-    "Herbert Clark Hoover",
-    "Franklin Delano Roosevelt",
-    "Harry S. Truman",
-    "Dwight David Eisenhower",
-    "John Fitzgerald Kennedy",
-    "Lyndon Baines Johnson",
-    "Richard Milhous Nixon",
-    "Gerald Rudolph Ford",
-    "James Earl Carter, Jr.",
-    "Ronald Wilson Reagan",
-    "George Herbert Walker Bush",
-    "William Jefferson Clinton",
-    "George Walker Bush",
-    "Barack Hussein Obama"
-  ];
-
-  $("#liftName").autocomplete({
-    source:presidents
+Template.workoutForm.rendered = function() {
+  //alert('Hi there!')
+  $(function() {
+    var availableTags = [
+      "Bench",
+      "Back Squat",
+      "Front Squat",
+      "Hammer Curls",
+      "Curls",
+      "Calf Raises",
+      "Deadlift",
+      "Romanian Deadlift",
+      "Lat Pulldown",
+      "Sit Ups",
+      "Push ups",
+      "Pull ups",
+      "Leg Extension",
+      "Tricep Pulldown",
+      "Power Cleans",
+      "Squat Cleans",
+      "Incline Bench",
+      "Pendlay Rows",
+      "Barbell Upright Rows",
+      "Dumbell Bench",
+      "Dumbell Incline Bench",
+      "Dumbell Rows"
+    ];
+    $( "#liftName" ).autocomplete({
+      source: availableTags
+    });
   });
+};

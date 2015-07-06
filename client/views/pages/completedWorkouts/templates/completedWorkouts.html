@@ -1,0 +1,27 @@
+<template name="completedWorkouts">
+
+    {{> pageHeading title='Completed Workouts' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center m-t-lg">
+                    <h2>
+                        {{#each completedWorkouts}}
+                            <h1>{{dateFinished}}</h1>
+                            {{#each lifts}}
+                                <h2>{{liftName}}</h2>
+                                {{#each sets}}
+                                    <h3>reps: {{reps}}</h3>
+                                    <h3>weight: {{weight}}</h3>
+                                {{/each}}
+                            {{/each}}
+
+                        {{/each}}
+                    </h2>
+                    <small></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
