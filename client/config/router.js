@@ -1,19 +1,28 @@
 Router.configure({
     layoutTemplate: 'mainLayout',
-    notFoundTemplate: 'notFound'
+    notFoundTemplate: 'notFound',
 
 });
 
 //
 // Example pages routes
 //
-
-Router.route('/logWorkout', function () {
-    this.render('logWorkout');
+Router.route('/logWorkout', {
+    waitOn: function() { return Meteor.subscribe('workout');},
+    name: 'logWorkout'
 });
 
-Router.route('/completedWorkouts', function () {
-    this.render('completedWorkouts');
+Router.route('/completedWorkouts', {
+    waitOn: function() { return Meteor.subscribe('completedWorkouts'); },
+    name:'completedWorkouts'
+});
+
+Router.route('/login', {
+    name: 'login'
+});
+
+Router.route('/register', {
+    name: 'register'
 });
 
 Router.route('/', function () {

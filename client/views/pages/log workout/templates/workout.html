@@ -13,19 +13,35 @@
 
             </div>
             <div class="ibox-content">
-                <div class="row header-center">
-                    <div class="col-sm-1"><h3>Set</h3></div>
-                    <div class="col-sm-1"><h3>Reps</h3></div>
-                    <div class="col-sm-1"><h3>Weight</h3></div>
-                </div>
-                <div>
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <th>Set #</th>
+                        <th>Reps</th>
+                        <th>Weight</th>
+
+                    </tr>
+                    </thead>
+                    <!--<div class="ibox-content">-->
+                    <!--<div class="row header-center">-->
+                    <!--<div class="col-sm-1"><h3>Set</h3></div>-->
+                    <!--<div class="col-sm-1"><h3>Reps</h3></div>-->
+                    <!--<div class="col-sm-1"><h3>Weight</h3></div>-->
+                    <!--</div>-->
+                    <tbody>
+
                     {{#each sets}}
                         {{>setConfig}}
                     {{/each}}
-                </div>
+
+                    </tbody>
+                </table>
+
                 <button class="next-lift btn btn-default" type="button">Next Lift</button>
             </div>
         </div>
+
 
     {{/each}}
 
@@ -37,36 +53,37 @@
 </template>
 
 <template name="setConfig">
-    <div>
 
-        <form>
+    <tr>
+        <th scope="row">{{setNum}}</th>
+        <th><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="reps"
+                   placeholder="Reps"></th>
+        <th><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight"
+                   placeholder="Weight"></th>
+    </tr>
 
-            <div class="row">
-                <div class="col-sm-1"><h3 class="header-center">#{{setNum}}</h3></div>
-                <div class="col-sm-1"><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="reps" placeholder="Reps"></div>
-                <div class="col-sm-1"> <input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight" placeholder="Weight"></div>
+    <!--<div class="row">-->
+    <!--<div class="col-sm-1"><h3 class="header-center">#{{setNum}}</h3></div>-->
+    <!--<div class="col-sm-1"><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="reps" placeholder="Reps"></div>-->
+    <!--<div class="col-sm-1"> <input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight" placeholder="Weight"></div>-->
 
-            </div>
-
-
-
-            <!--<div class="form-group">-->
-                <!--<label for="weight" class="col-sm-1 control-label">Weight</label>-->
-
-                <!--<div class="col-sm-3">-->
-                    <!--<input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight"-->
-                           <!--placeholder="Weight">-->
-                <!--</div>-->
-            <!--</div>-->
+    <!--</div>-->
 
 
-        </form>
-        <!--<label for=""> reps <input data-type="reps" data-setnum="{{setNum}}" class='setConfig' value="{{reps}}"-->
-        <!--type="text"/></label>-->
-        <!--<label for=""> weight <input data-type="weight" data-setnum="{{setNum}}" class='setConfig' value="{{weight}}"-->
-        <!--type="text"/></label>-->
+    <!--<div class="form-group">-->
+    <!--<label for="weight" class="col-sm-1 control-label">Weight</label>-->
+
+    <!--<div class="col-sm-3">-->
+    <!--<input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight"-->
+    <!--placeholder="Weight">-->
+    <!--</div>-->
+    <!--</div>-->
 
 
-    </div>
+    <!--<label for=""> reps <input data-type="reps" data-setnum="{{setNum}}" class='setConfig' value="{{reps}}"-->
+    <!--type="text"/></label>-->
+    <!--<label for=""> weight <input data-type="weight" data-setnum="{{setNum}}" class='setConfig' value="{{weight}}"-->
+    <!--type="text"/></label>-->
+
 
 </template>
