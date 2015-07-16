@@ -1,4 +1,18 @@
+Template.mainLayout.events({
+
+
+  'click #logout' : function(e, t) {
+    Meteor.logout();
+
+
+  }
+
+});
+
+
 Template.mainLayout.rendered = function () {
+
+
 
   // Minimalize menu when screen is less than 768px
   $(window).bind("resize load", function () {
@@ -37,8 +51,9 @@ Template.mainLayout.rendered = function () {
   //$('body').addClass('skin-1');
 
   // FIXED-SIDEBAR
-  // Uncomment this if you want to have fixed left navigation
+  //// Uncomment this if you want to have fixed left navigation
   $('body').addClass('fixed-sidebar');
+  $('body').addClass('body-small');
   $('.sidebar-collapse').slimScroll({
     height: '100%',
     railOpacity: 0.9

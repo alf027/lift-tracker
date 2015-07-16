@@ -10,24 +10,24 @@ Template.navigation.rendered = function () {
 
 Template.navigation.helpers({
 
-  data: function () {
-    if (Meteor.users.findOne().emails[0].address) {
-      return Meteor.users.findOne().emails[0].address;
-    } else return undefined
-
-  }
-
-});
-
-Template.navigation.events({
-
-
-  'click #logout' : function(e, t) {
-    Meteor.logout();
-    Router.go('logWorkout');
-
-  }
+  //data: function () {
+  //  if (Meteor.users.findOne().emails[0].address) {
+  //    return Meteor.users.findOne().emails[0].address;
+  //  } else return undefined
+  //
+  //}
 
 });
+
+//Template.navigation.events({
+//
+//
+//  'click #logout' : function(e, t) {
+//    Meteor.logout();
+//    Router.go('logWorkout');
+//
+//  }
+//
+//});
 
 

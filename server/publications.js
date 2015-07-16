@@ -1,7 +1,11 @@
-Meteor.publish('workout', function() {
-  return workout.find();
+Meteor.publish('workout', function(userId) {
+  return workout.find({userId:userId});
 });
 
-Meteor.publish('completedWorkouts', function() {
-  return CompletedWorkouts.find();
+Meteor.publish('completedWorkouts', function(userId) {
+  return CompletedWorkouts.find({userId:userId});
+});
+
+Meteor.publish('userProfile', function(userId) {
+  return UserProfile.find({userId:userId});
 });

@@ -4,16 +4,16 @@
         <!--<input class="removeBut" type="button" value="Remove"/>-->
 
 
-        <div class="ibox float-e-margins">
+        <div class="ibox float-e-margins collapsed  ">
             <div class="ibox-title">
 
                 <!--<i class="fa fa-minus-circle lift removeBut" data-id="{{_id}}"></i> {{liftName}}-->
-                <h5>{{liftName}}</h5>
+                <h5 class=""><a href="">{{liftName}}</a></h5>
                 {{>iboxTools}}
 
             </div>
-            <div class="ibox-content">
-                <table class="table">
+            <div class="ibox-content ">
+                <table class="table lift">
 
                     <thead>
                     <tr>
@@ -23,12 +23,7 @@
 
                     </tr>
                     </thead>
-                    <!--<div class="ibox-content">-->
-                    <!--<div class="row header-center">-->
-                    <!--<div class="col-sm-1"><h3>Set</h3></div>-->
-                    <!--<div class="col-sm-1"><h3>Reps</h3></div>-->
-                    <!--<div class="col-sm-1"><h3>Weight</h3></div>-->
-                    <!--</div>-->
+
                     <tbody>
 
                     {{#each sets}}
@@ -38,16 +33,21 @@
                     </tbody>
                 </table>
 
-                <button class="next-lift btn btn-default" type="button">Next Lift</button>
+
             </div>
         </div>
 
 
     {{/each}}
 
+    {{#if lift}}
+        <input id='finish' type="submit" class="btn btn-w-m btn-primary " value="Finish Workout"/>
+    {{/if}}
 
-    <input id='finish' type="submit" value="Finish Workout"/>
-    <!--<button id="finish">Finish Workout</button>-->
+
+
+
+
 
 
 </template>
@@ -56,34 +56,14 @@
 
     <tr>
         <th scope="row">{{setNum}}</th>
-        <th><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="reps"
+        <th><input type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{reps}}"
+                   class="form-control setConfig" id="reps"
                    placeholder="Reps"></th>
-        <th><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight"
+        <th><input type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{weight}}"
+                   class="form-control setConfig" id="weight"
                    placeholder="Weight"></th>
     </tr>
 
-    <!--<div class="row">-->
-    <!--<div class="col-sm-1"><h3 class="header-center">#{{setNum}}</h3></div>-->
-    <!--<div class="col-sm-1"><input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="reps" placeholder="Reps"></div>-->
-    <!--<div class="col-sm-1"> <input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight" placeholder="Weight"></div>-->
-
-    <!--</div>-->
-
-
-    <!--<div class="form-group">-->
-    <!--<label for="weight" class="col-sm-1 control-label">Weight</label>-->
-
-    <!--<div class="col-sm-3">-->
-    <!--<input type="number" data-setnum="{{setNum}}" class="form-control setConfig" id="weight"-->
-    <!--placeholder="Weight">-->
-    <!--</div>-->
-    <!--</div>-->
-
-
-    <!--<label for=""> reps <input data-type="reps" data-setnum="{{setNum}}" class='setConfig' value="{{reps}}"-->
-    <!--type="text"/></label>-->
-    <!--<label for=""> weight <input data-type="weight" data-setnum="{{setNum}}" class='setConfig' value="{{weight}}"-->
-    <!--type="text"/></label>-->
 
 
 </template>

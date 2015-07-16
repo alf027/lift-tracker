@@ -2,8 +2,10 @@ Template.workoutForm.events({
   'submit form': function (event) {
     event.preventDefault();
 
+
     var liftName = document.getElementById('liftName');
     var numSets = document.getElementById('numSets').value;
+
     var setsArr = [];
 
     for (var i = 1; i <= numSets; i++) {
@@ -15,7 +17,9 @@ Template.workoutForm.events({
       setsArr.push(tempObj[i])
     }
 
-    workout.insert({liftName: liftName.value, numSets: numSets, sets: setsArr});
+    workout.insert({liftName: liftName.value, numSets: numSets, sets: setsArr, userId:Meteor.userId()},function(err,doc){
+      console.log(doc)
+    });
     liftName.value = '';
     document.getElementById('numSets').value ='';
 
@@ -54,4 +58,11 @@ Template.workoutForm.rendered = function() {
       source: availableTags
     });
   });
+
+  var firstLift = document.getElementById('firstLift');
+
+
+  if(firstLift) {
+
+  }
 };

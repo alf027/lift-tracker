@@ -1,37 +1,57 @@
 <template name="topNavbar">
     <div class="row border-bottom">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a id="navbar-minimalize" class="minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+            <div class="navbar-header ">
+                <a id="navbar-minimalize" class="minimalize-styl-2 btn btn-primary " href="#"><i
+                        class="fa fa-bars "></i>
                 </a>
 
             </div>
             <!--<ul class="nav navbar-top-links navbar-right">-->
-                <!--<li>-->
-                    <!--<a href="#">-->
-                        <!--Welcome to Lift Tracker-->
-                    <!--</a>-->
-                <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--Welcome to Lift Tracker-->
+            <!--</a>-->
+            <!--</li>-->
 
             <!--</ul>-->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <ul class="nav navbar-top-links navbar-left">
+            <!--<div data-toggle="" class="navbar-toggle collapsed">-->
+            <!--<a data-toggle="modal" data-target="#myModal" class="collapsed" href="">login</a>-->
+            <!--</div>-->
+            {{#if email}}
+                <a href="/login" id="logout" class="navbar-toggle collapsed">
+                    logout
+                </a>
+            {{else}}
+                <button type="button" data-toggle="modal" data-target="#login" class="navbar-toggle collapsed">
+                    Login
+                </button>{{/if}}
+
+            <ul class="nav navbar-top-links navbar-left" data-toggle="collapsed">
+
                 <li>
-                    <a href="#">
-                        Welcome to Lift Tracker
-                    </a>
+                    {{#if email}}
+                        <a href="#" class="hidden-md hidden-lg">
+                            {{email}}
+                        </a>
+                        <a href="#" class="hidden-sm hidden-xs">
+                            Welcome to Lift Tracker
+                        </a>
+
+                    {{else}}
+                        <a href="#" class="">
+                            Welcome to Lift Tracker
+                        </a>
+
+                    {{/if}}
                 </li>
+
 
             </ul>
             <!--<div class="collapse navbar-collapse" id="navigation">-->
-                <!--<ul class="nav navbar-nav navbar-right">-->
-                    <!--{{> loginButtons}}-->
-                <!--</ul>-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--{{> loginButtons}}-->
+            <!--</ul>-->
             <!--</div>-->
 
 

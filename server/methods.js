@@ -25,6 +25,9 @@ Meteor.startup(function () {
           //console.log(CompletedWorkouts.find().fetch());
         }
       });
+    },
+    insertNewUserProfile:function(id) {
+      UserProfile.insert({userId:id})
     }
 
   });
