@@ -2,13 +2,10 @@ Template.workout.helpers({
   lift: function () {
     if(workout.find().fetch().length === 0){
       return undefined
-
     } else {
       return workout.find()
     }
-
   }
-
 });
 
 Template.workout.events({
@@ -32,7 +29,7 @@ Template.workout.events({
     var content = ibox.find('div.ibox-content');
     content.slideToggle(200);
     button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-    //ibox.toggleClass('').toggleClass('border-bottom');
+    ibox.toggleClass('').toggleClass('border-bottom');
     setTimeout(function () {
       ibox.resize();
       ibox.find('[id^=map-]').resize();
@@ -50,23 +47,15 @@ Template.workout.events({
     var completed = {};
     completed.lifts = workout.find().fetch();
     completed.dateFinished = curDate;
-    completed.userId = Meteor.user()._id;
+    completed.userId = Meteor.userId();
     console.log(completed);
-    Meteor.call('insertCompletedWorkout',completed);
+    //console.log(Meteor.userId());
+    //workout.remove({});
+    Meteor.call('insertCompletedWorkout',completed,Meteor.userId());
 
-    //
-    //CompletedWorkouts.insert(completed, function (err, doc) {
-    //  if (err) {
-    //    console.log(err)
-    //  } else {
-    //    workout.remove({});
-    //    console.log(doc);
-    //    console.log(CompletedWorkouts.find().fetch());
-    //  }
-    //});
 
   }
-})
+});
 
 
 

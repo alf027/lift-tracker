@@ -9,3 +9,7 @@ Meteor.publish('completedWorkouts', function(userId) {
 Meteor.publish('userProfile', function(userId) {
   return UserProfile.find({userId:userId});
 });
+
+Meteor.publish('Programs', function(userId) {
+  return Programs.find({});
+});

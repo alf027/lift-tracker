@@ -10,7 +10,7 @@ var IR_BeforeHooks = {
     }
   }
 // add more before hooks here
-}
+};
 
 // (Global) Before hooks for any route
 Router.onBeforeAction(IR_BeforeHooks.isLoggedIn);
@@ -58,6 +58,16 @@ Router.route('/profile', {
 Router.route('/login', {
   name: 'login'
 });
+
+Router.route('/program', {
+
+  waitOn: function () {
+    return Meteor.subscribe('Programs');
+  },
+  name: 'programWizard'
+});
+
+
 
 Router.route('/register', {
   name: 'register'
