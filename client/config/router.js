@@ -62,7 +62,7 @@ Router.route('/login', {
 Router.route('/program', {
 
   waitOn: function () {
-    return Meteor.subscribe('Programs');
+    return Meteor.subscribe('Programs',Meteor.userId());
   },
   name: 'programWizard'
 });

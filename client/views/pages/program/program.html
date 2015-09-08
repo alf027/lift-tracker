@@ -5,23 +5,61 @@
     {{> pageHeading title='Create Program' category='App views' }}
 
     {{#each programs}}
+        <h1>{{name}}</h1>
         {{#each workouts}}
             <div class="ibox float-e-margins collapsed  ">
                 <div class="ibox-title collapse-link">
                     {{>iboxTools}}
+                    <h2>Workout {{workoutNum}}</h2>
+                    {{#each lifts}}
+                        <!--<h1>test</h1>-->
+                        <div class="">
+                            <table class="table lift">
+
+                                <thead>
+                                <tr>
+                                    <th>Set #</th>
+                                    <th>Reps</th>
+                                    <th>Weight</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                </tr>
+                                <h2>{{liftName}}</h2>
+
+                                {{#each sets}}
+                                    <tr>
+                                        <th scope="row">{{setNum}}</th>
+                                        <th><input type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{reps}}"
+                                                   class="form-control setConfig" id="reps"
+                                                   placeholder="Reps"></th>
+                                        <th><input type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{weight}}"
+                                                   class="form-control setConfig" id="weight"
+                                                   placeholder="Weight"></th>
+                                    </tr>
+                                {{/each}}
+
+                                </tbody>
+                            </table>
 
 
+                        </div>
 
 
+                    {{/each}}
 
-
+                    {{>programWorkoutForm}}
                 </div>
             </div>
         {{/each}}
     {{/each}}
 
 
-    <form id="form" action="#" class="form-horizontal col-md-offset-4">
+    <form id="program-init" action="#" class="form-horizontal col-md-offset-4 program-init">
         <h1>Program Creation</h1>
         <!--<fieldset>-->
         <!--<h2>Program Information</h2>-->
@@ -62,9 +100,7 @@
         </div>
     </form>
 
-    <div>
-        {{test.blah.test}}
-    </div>
+
 
 
 </template>

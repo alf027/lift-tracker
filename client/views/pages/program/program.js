@@ -1,19 +1,24 @@
 Template.programWizard.helpers({
   programs: function () {
     return Programs.find({editing:true})
-  }
+  },
+
+  //lifts: function() {
+  //  return Session.get('lifts')
+  //}
 });
 
 Template.programWizard.events({
-  'submit form': function (event,template) {
+  'submit form.program-init': function (event,template) {
     event.preventDefault();
     var programObj = {};
-    var programName = template.$('#Name').val();
+    var programName = template.$('#name').val();
     var numWorkouts = template.$('#numWorkouts').val();
     var workoutArr = [];
 
     for (var i = 0; i<numWorkouts;i++) {
-      workoutArr.push({})
+      workoutArr.push({workoutNum:i+1,lifts:[]})
+      //workoutArr.push({lifts:[]})
     }
 
     programObj.workouts = workoutArr;
@@ -22,9 +27,12 @@ Template.programWizard.events({
     programObj.currentWorkout = 0;
     programObj.default = false;
     programObj.editing = true;
+    programObj.userId = Meteor.userId();
+    //programObj.workouts.lifts = []
 
+    Session.set('lifts', []);
     Programs.insert(programObj);
-    console.log(Programs.find({editing:true}))
+    //console.log(Programs.find({editing:true}))
 
 
   }

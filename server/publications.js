@@ -11,5 +11,5 @@ Meteor.publish('userProfile', function(userId) {
 });
 
 Meteor.publish('Programs', function(userId) {
-  return Programs.find({});
+  return Programs.find({userId:userId});
 });
