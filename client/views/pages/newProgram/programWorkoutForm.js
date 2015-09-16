@@ -3,7 +3,8 @@ Template.programWorkoutForm.events({
         event.preventDefault();
 
 
-        var program = Programs.find().fetch()[0]
+        var program = Programs.findOne({editing:true});
+        console.log(program);
         //console.log(Programs.find().fetch()[0].workouts);
         //console.log(workouts);
 
@@ -37,11 +38,14 @@ Template.programWorkoutForm.events({
         program.workouts[workoutNum-1].lifts.push(newLift);
         //program.workouts[workoutNum-1].liftName = liftName;
         //program.workouts[workoutNum-1].numSets = numSets;
-
+        console.log(program._id);
         Programs.update({_id:program._id},
             { $set: {
                 workouts: program.workouts
             }
+            },function(doc){;
+                console.log('update')
+                console.log(doc)
             });
 
 

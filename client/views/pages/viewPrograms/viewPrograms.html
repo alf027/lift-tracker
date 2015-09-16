@@ -1,0 +1,56 @@
+<template name="viewPrograms">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-12">
+            <h2 class="page-heading">View Programs</h2>
+        </div>
+        <div class="wrapper-content">
+            <div class="col-lg-10 col-md-offset-1">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h2 class='col-md-3 col-md-offset-5'>Program Name</h2>
+
+                        <div class="ibox-tools">
+                            <!--<span class="label label-warning-light">10 Messages</span>-->
+                        </div>
+                    </div>
+                    <div class="ibox-content text-center">
+
+                        <div class="col-md-2 col-md-offset-5">
+                            <select name="viewProgram" class="form-control" id="viewProgram">
+                                {{#each programs}}
+                                    <option class="programSelect" value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        {{>viewOneProgram}}
+    </div>
+
+    <!--<div class="col-lg-10 col-md-offset-1">-->
+    <!--<div class="ibox float-e-margins col-lg-12">-->
+
+
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+
+    <!--<div class="ibox float-e-margins collapsed  ">-->
+    <!--<div class="ibox-title collapse-link">-->
+    <!--{{>iboxTools}}-->
+    <!--<h2>program name</h2>-->
+    <!--<div class="ibox-content">-->
+    <!--lifts-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+</template>

@@ -56,6 +56,14 @@
                     <a href="{{pathFor 'completedWorkouts'}}"><i class="fa fa-diamond"></i> <span class="nav-label">Completed Workouts</span>
                     </a>
                 </li>
+                <li class="{{isActiveRoute regex='programs/new'}}">
+                    <a href="{{pathFor 'programWizard'}}"><i class="fa fa-diamond"></i> <span class="nav-label">Create Program</span>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute regex='programs'}}">
+                    <a href="{{pathFor 'viewPrograms'}}"><i class="fa fa-diamond"></i> <span class="nav-label">View Programs</span>
+                    </a>
+                </li>
             </ul>
         </div>
 

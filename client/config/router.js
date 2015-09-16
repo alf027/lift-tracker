@@ -59,12 +59,25 @@ Router.route('/login', {
   name: 'login'
 });
 
-Router.route('/program', {
+Router.route('/programs/new', {
 
   waitOn: function () {
     return Meteor.subscribe('Programs',Meteor.userId());
   },
   name: 'programWizard'
+});
+
+
+Router.route('/programs', {
+
+  waitOn: function () {
+    return[
+      Meteor.subscribe('Programs',Meteor.userId()),
+      Meteor.subscribe('workout',Meteor.userId())
+
+    ];
+  },
+  name: 'viewPrograms'
 });
 
 
