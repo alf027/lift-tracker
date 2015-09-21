@@ -1,3 +1,5 @@
+
+
 Template.workout.helpers({
   lift: function () {
     if(workout.find().fetch().length === 0){

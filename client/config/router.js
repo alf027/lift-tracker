@@ -67,6 +67,15 @@ Router.route('/programs/new', {
   name: 'programWizard'
 });
 
+Router.route('/programs/:id/edit', {
+  waitOn: function () {
+    console.log(this.params.id);
+    return Meteor.subscribe('OneProgram',Meteor.userId(),this.params.id);
+  },
+  name: 'editProgram'
+});
+
+
 
 Router.route('/programs', {
 
@@ -79,6 +88,19 @@ Router.route('/programs', {
   },
   name: 'viewPrograms'
 });
+
+Router.route('/programs/:id', {
+
+  waitOn: function () {
+    return[
+      Meteor.subscribe('OneProgram',Meteor.userId(),this.params.id),
+      Meteor.subscribe('workout',Meteor.userId())
+
+    ];
+  },
+  name: 'viewOneProgram'
+});
+
 
 
 

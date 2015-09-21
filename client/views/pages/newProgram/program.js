@@ -1,9 +1,9 @@
 Template.programWizard.helpers({
-    programs: function () {
-        return Programs.findOne({editing: true})
-    }
-
-    //lifts: function() {
+    //programs: function () {
+    //    return Programs.findOne()
+    //}
+    //
+    ////lifts: function() {
     //  return Session.get('lifts')
     //}
 });
@@ -31,7 +31,11 @@ Template.programWizard.events({
         //programObj.workouts.lifts = []
 
         Session.set('lifts', []);
-        Programs.insert(programObj);
+        Programs.insert(programObj ,function(err,doc){
+            console.log(doc)
+            Router.go('editProgram',{id:doc})
+        });
+
         //console.log(Programs.find({editing:true}))
 
 
@@ -46,6 +50,7 @@ Template.programWizard.events({
                 }
             });
         console.log(Programs.findOne({editing: true}))
+
     }
 
 

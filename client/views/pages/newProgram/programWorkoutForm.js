@@ -3,7 +3,7 @@ Template.programWorkoutForm.events({
         event.preventDefault();
 
 
-        var program = Programs.findOne({editing:true});
+        var program = Programs.findOne({});
         console.log(program);
         //console.log(Programs.find().fetch()[0].workouts);
         //console.log(workouts);
