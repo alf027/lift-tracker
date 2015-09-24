@@ -21,12 +21,16 @@ Template.viewOneProgram.events({
             });
         //console.log(Programs.findOne({_id: Session.get('program')}));
 
-        console.log(Meteor.userId())
-        var userId = Meteor.userId()
+        console.log(Meteor.userId());
+        var userId = Meteor.userId();
         Meteor.call('clearActiveWorkouts', Meteor.userId());
         console.log(program.workouts[current]);
         for(var i = 0;i<program.workouts[current].lifts.length; i++) {
             var cur = program.workouts[current].lifts[i];
+            cur.workoutNum = program.workouts[current].workoutNum;
+            cur.totalWorkouts = program.workouts[current].length;
+            cur.programName = program.name;
+            cur.programId = program._id;
             cur.userId = Meteor.userId();
             console.log(cur);
             workout.insert(cur);

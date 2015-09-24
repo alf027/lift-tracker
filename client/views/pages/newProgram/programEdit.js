@@ -1,3 +1,4 @@
+//
 Template.editProgram.helpers({
   programs: function () {
     console.log(Programs.findOne({}));
@@ -10,10 +11,27 @@ Template.editProgram.helpers({
 });
 
 Template.editProgram.events({
+  'keyup .setConfig': function(event,template){
+    var liftId = $(event.target).data('liftid');
+    var setNum = $(event.target).data('setnum') -1;
+    var type =  $(event.target).data('type');
+    var workoutNum = $(event.target).data('workoutnum') - 1;
+    var id = Router.current().params.id;
+    var test = Programs.findOne({_id:id});
+    test.workouts[workoutNum].lifts.forEach(function(e,i){
+      if (e.liftId == liftId) {
+        e.sets[setNum][type] = event.target.value;
+        Programs.update({_id:id},{$set:{workouts:test.workouts}})
+      }
+    })
+
+  },
+
    'click #programSub': function (event, template) {
     var program = Programs.findOne({});
 
     console.log(program);
+     Router.go('viewPrograms');
      //setConfigReps: function (id, setNum, val) {
      //  workout.update({
      //    _id: id.toString(),
@@ -54,3 +72,8 @@ Template.editProgram.events({
   //
   //}
 });
+
+Template.editProgram.rendered = function() {
+
+
+}

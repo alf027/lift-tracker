@@ -13,7 +13,7 @@ Template.viewPrograms.helpers({
 Template.viewPrograms.events({
  'change #viewProgram': function (event,template) {
      console.log(event);
-     Session.set('program',$( "#viewProgram").val());
+     Session.set('program',$("#viewProgram").val());
      //Router.go('viewOneProgram',{id:$( "#viewProgram").val()})
      console.log('test');
  }

@@ -26,19 +26,19 @@ Meteor.startup(function () {
         },
         insertCompletedWorkout: function (completed, user) {
             Meteor.onConnection(function (test) {
-                console.log('in method' + test.clientAddress)
+                //console.log('in method' + test.clientAddress)
             });
 
-            console.log(this.connection);
+            //console.log(this.connection);
             CompletedWorkouts.insert(completed, function (err, doc) {
-                console.log(completed);
-                console.log('in insert');
+                //console.log(completed);
+                //console.log('in insert');
                 if (err) {
-                    console.log(err)
+                    //console.log(err)
                 } else {
                     //console.log(user);
                     //workout.remove({userId:user});
-                    Meteor.call('clearActiveWorkouts', user);
+                    //Meteor.call('clearActiveWorkouts', user);
                     //console.log(doc);
                     return doc;
                     //console.log(CompletedWorkouts.find().fetch());

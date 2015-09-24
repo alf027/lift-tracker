@@ -9,6 +9,12 @@ Template.mainLayout.events({
 
 });
 
+if (Meteor.isClient) {
+
+  // This code only runs on the client
+
+}
+
 
 Template.mainLayout.rendered = function () {
 

@@ -9,8 +9,10 @@ Template.programWizard.helpers({
 });
 
 Template.programWizard.events({
+
     'submit form.program-init': function (event, template) {
         event.preventDefault();
+        //console.log('id',Object);
         var programObj = {};
         var programName = template.$('#name').val();
         var numWorkouts = template.$('#numWorkouts').val();
@@ -32,7 +34,7 @@ Template.programWizard.events({
 
         Session.set('lifts', []);
         Programs.insert(programObj ,function(err,doc){
-            console.log(doc)
+            console.log(doc);
             Router.go('editProgram',{id:doc})
         });
 
@@ -50,6 +52,7 @@ Template.programWizard.events({
                 }
             });
         console.log(Programs.findOne({editing: true}))
+
 
     }
 

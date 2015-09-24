@@ -35,17 +35,34 @@ Router.configure({
 //
 Router.route('/logWorkout', {
   waitOn: function () {
-    return Meteor.subscribe('workout',Meteor.userId())
+    return [
+      Meteor.subscribe('workout',Meteor.userId()),
+      Meteor.subscribe('Programs',Meteor.userId()),
+      Meteor.subscribe('userProfile',Meteor.userId())
+      ]
   },
   name: 'logWorkout'
 });
 
 Router.route('/completedWorkouts', {
   waitOn: function () {
-    return Meteor.subscribe('completedWorkouts',Meteor.userId());
+    return [
+      Meteor.subscribe('completedWorkouts',Meteor.userId()),
+      Meteor.subscribe('Programs',Meteor.userId())
+    ]
   },
   name: 'completedWorkouts'
 });
+
+Router.route('/completedWorkouts/:id',{
+  waitOn: function () {
+    return [
+      Meteor.subscribe('completedWorkouts',Meteor.userId(),this.params.id)
+      //Meteor.subscribe('Programs',Meteor.userId())
+    ]
+  },
+  name: 'showCompletedWorkout'
+})
 
 Router.route('/profile', {
 

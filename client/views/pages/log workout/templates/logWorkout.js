@@ -1,32 +1,38 @@
-// Run this when the meteor app is started
-if (Meteor.isServer) {
-  //console.log('startup');
-  //Meteor.startup(function () {
-  //  Meteor.methods({
-  //    setConfigReps: function (id, setNum, val) {
-  //      workout.update({
-  //        _id: id.toString(),
-  //        "sets.setNum": setNum
-  //      }, {$set: {"sets.$.reps": val}}, function (err, status) {
-  //        console.log(err, status)
-  //      });
-  //
-  //
-  //    },
-  //    setConfigWeight: function (id, setNum, val) {
-  //      workout.update({_id: id, "sets.setNum": setNum}, {$set: {"sets.$.weight": val}});
-  //
-  //    }
-  //    //setConfigWeight: function (target,id) {
-  //    //  var setNum = target.dataset.setNum;
-  //    //  var weight = target.value;
-  //    //  workout.update({_id: id,"sets.setNum":setNum},{$set:{"sets.$.weight":weight}})
-  //    //}
-  //
-  //
-  //  });
-  //  //function setConfig() {
-  //  //  workout.update({_id: "9vw8JaSmRdbCT5ifW","sets.setNum":1},{$set:{"sets.$.reps":5}})
-  //  //}
-  //});
+Template.logWorkout.helpers(  {
+  program: function() {
+    if(Programs.findOne({default:true})) {
+      var prog = Programs.findOne({default:true})
+      prog.currentWorkout ++;
+      return prog
+    }
+
+  }
+
+})
+
+Template.logWorkout.events( {
+  'click #clear': function(event) {
+    event.preventDefault();
+    Meteor.call('clearActiveWorkouts', Meteor.userId());
+    var activeProgram = Programs.findOne({userId:Meteor.userId(), default:true});
+    if(activeProgram) {
+      //activeProgram.default = false;
+      Programs.update({_id:activeProgram._id},{$set:{default:false}})
+    }
+  }
+})
+
+Template.logWorkout.rendered = function() {
+  //console.log('rendered');
+  var curDate = new Date;
+  var month = (curDate.getMonth() + 1);
+  console.log(month);
+  console.log(month.toString().length);
+  if (month.toString().length == 1) {
+    month = '0' + month
+  }
+  var dtest = curDate.getFullYear() + '-' + month + '-' + curDate.getDate();
+
+  console.log(dtest);
+  $('#datePicker').val(dtest);
 }

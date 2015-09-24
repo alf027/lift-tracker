@@ -1,0 +1,80 @@
+<template name="showCompletedWorkout">
+    {{> pageHeading title='Completed Workout' }}
+
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <h2>{{lifts.programName}} - Workout # {{lifts.workoutNum}}</h2>
+        {{#each lifts.lifts}}
+            <!--<input class="removeBut" type="button" value="Remove"/>-->
+
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+
+                    <!--<i class="fa fa-minus-circle lift removeBut" data-id="{{_id}}"></i> {{liftName}}-->
+                    <h5 class=""><a href="">{{liftName}}</a></h5>
+
+                    <div class="ibox-tools">
+                        <a class="">
+                            <!--<i class="fa fa-chevron-up"></i>-->
+                        </a>
+                        <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+                        <!--<i class="fa fa-wrench"></i>-->
+                        <!--</a>-->
+                        <!--<ul class="dropdown-menu dropdown-user">-->
+                        <!--<li><a href="#">Config option 1</a>-->
+                        <!--</li>-->
+                        <!--<li><a href="#">Config option 2</a>-->
+                        <!--</li>-->
+                        <!--</ul>-->
+                        <a class="close-link removeBut">
+                            <!--<i class="fa fa-times"></i>-->
+                        </a>
+                    </div>
+
+                </div>
+                <div class="ibox-content ">
+                    <table class="table lift">
+
+                        <thead>
+                        <tr>
+                            <th>Set #</th>
+                            <th>Reps</th>
+                            <th>Weight</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {{#each sets}}
+                            {{>compsetConfig}}
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+
+
+        {{/each}}
+    </div>
+
+
+</template>
+
+<template name="compsetConfig">
+
+    <tr>
+        <th scope="row">{{setNum}}</th>
+        <th><input disabled type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{reps}}"
+                   class="form-control setConfig" id="reps"
+                   placeholder="Reps"></th>
+        <th><input disabled type="number" data-setnum="{{setNum}}" data-id={{_id}} value="{{weight}}"
+                   class="form-control setConfig" id="weight"
+                   placeholder="Weight"></th>
+    </tr>
+
+
+</template>
