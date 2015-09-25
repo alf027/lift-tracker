@@ -1,0 +1,60 @@
+<template name="programAnalytics">
+
+    {{> pageHeading title='Program Analytics'}}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div>
+            <select name="programSelect" id="programSelect">
+                <option selected value=""></option>
+                {{#each programs}}
+                    <option class="programSelect" value="{{name}}">{{name}}</option>
+                {{/each}}
+            </select>
+            {{#if liftNames}}
+                <select name="liftSelect" id="liftSelect">
+
+
+                    {{#with liftNames}}
+                        <option value=""></option>
+                        {{#each liftNames}}
+                            <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    {{/with}}
+
+                    <!--<option value="Bench Press">Bench Press</option>-->
+
+                    <!--<option value="Back Squat">Back Squat</option>-->
+                </select>
+            {{/if}}
+        </div>
+
+            <div class="row">
+
+
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    {{#with completed}}
+                        <div class="ibox-title">
+
+                            <h5>{{liftName}}
+
+                                <small>{{numSets}} sets of {{completed.sets.[0].reps}} reps</small>
+                            </h5>
+                            {{>iboxTools}}
+                        </div>
+                    {{/with}}
+                    <div class="ibox-content" id="ibox-graph">
+                        <div id="graph-container">
+                            <canvas id="lineChart" height="140"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</template>

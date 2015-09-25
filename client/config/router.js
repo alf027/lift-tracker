@@ -33,6 +33,7 @@ Router.configure({
 //
 // Example pages routes
 //
+
 Router.route('/logWorkout', {
   waitOn: function () {
     return [
@@ -42,6 +43,16 @@ Router.route('/logWorkout', {
       ]
   },
   name: 'logWorkout'
+});
+
+Router.route('/programAnalytics',{
+  waitOn:function(){
+    return [
+      Meteor.subscribe('completedWorkouts',Meteor.userId()),
+      Meteor.subscribe('Programs',Meteor.userId())
+    ]
+  },
+  name: 'programAnalytics'
 });
 
 Router.route('/completedWorkouts', {
