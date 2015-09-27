@@ -1,36 +1,47 @@
 <template name="logWorkout">
-
-
-    <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-12">
-            <h2 class="page-heading">Log Workout <input id="datePicker" type="date"/></h2>
-            <h3>Currently Loaded Program: {{#with program}}{{name}} {{/with}} <a href="" id="clear">clear</a></h3>
-            <h4>Workout: {{#with program}}{{currentWorkout}} of {{numWorkouts}} {{/with}}</h4>
-        </div>
-        <div class="col-lg-10 col-md-offset-1">
-            <div class="ibox float-e-margins col-lg-12">
-
-
-                {{>workout}}
-                {{>workoutForm}}
-
+    <!--<div class="">-->
+    {{> pageHeading title='Log Workout' category='App views' }}
+    <div class="wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--<h2 class="page-heading">Log Workout</h2>-->
+                {{#with program}}
+                    <h3>Currently Loaded Program: {{name}}  <a href="" id="clear">clear</a></h3>
+                    <h4>Workout: {{currentWorkout}} of {{numWorkouts}}</h4>
+                {{/with}}
 
             </div>
+            <div class="col-lg-10 col-md-offset-1 white-bg">
+                <div class="ibox float-e-margins white-bg col-lg-12">
+                    <div>
+                        <form class="form-inline p-md">
+                            <label for="">Date of Workout: <input class="form-control" id="datePicker" type="date"/></label>
+                        </form>
+
+                    </div>
+
+                    {{>workout}}
+
+
+                </div>
+            </div>
+            {{>workoutForm}}
         </div>
+
     </div>
     <!--<div class="wrapper wrapper-content animated fadeInRight">-->
 
 
-        <!--&lt;!&ndash;<div class="col-lg-12">&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="text-center m-t-lg">&ndash;&gt;-->
-        <!--&lt;!&ndash;<h1>&ndash;&gt;-->
-        <!--&lt;!&ndash;Welcome in INSPINIA Meteor SeedProject&ndash;&gt;-->
-        <!--&lt;!&ndash;</h1>&ndash;&gt;-->
-        <!--&lt;!&ndash;<small>&ndash;&gt;-->
-        <!--&lt;!&ndash;It is an application skeleton for a typical Meteor web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.&ndash;&gt;-->
-        <!--&lt;!&ndash;</small>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="col-lg-12">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="text-center m-t-lg">&ndash;&gt;-->
+    <!--&lt;!&ndash;<h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;Welcome in INSPINIA Meteor SeedProject&ndash;&gt;-->
+    <!--&lt;!&ndash;</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;<small>&ndash;&gt;-->
+    <!--&lt;!&ndash;It is an application skeleton for a typical Meteor web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.&ndash;&gt;-->
+    <!--&lt;!&ndash;</small>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
     <!--</div>-->
 </template>

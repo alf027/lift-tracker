@@ -1,17 +1,29 @@
-
-
 <template name="viewOneProgram">
     {{#each program}}
-        <div>
-            <h2>{{name}} <a href="/programs/{{_id}}/edit">edit</a></h2>
-            <button id="active" class="btn">Set Active</button>
+
+        <div class="row">
+
         </div>
+        <div>
+            <h2 class="inline">{{name}} </h2>
+            <a href="/programs/{{_id}}/edit">edit</a>
+
+            <form action="">
+                <button id="active" class="form-control btn btn-primary">Set Active</button>
+            </form>
+        </div>
+
+
 
         {{#each workouts}}
             <div class="ibox float-e-margins collapsed  ">
+
+
                 <div class="ibox-title collapse-link">
                     <!--{{>iboxTools}}-->
-                    <h2>Workout {{workoutNum}}</h2>
+
+
+                    <h3>Workout {{workoutNum}}</h3>
                     {{#each lifts}}
                         <!--<h1>test</h1>-->
                         <h2>{{liftName}}</h2>
@@ -37,13 +49,13 @@
                                 {{#each sets}}
                                     <tr>
                                         <th scope="row">{{setNum}}</th>
-                                        <th> <h4 type="number" data-setnum="{{setNum}}"
-                                                   data-id="{{_id}}"
-                                                   class="form-control setConfig" id="reps">
+                                        <th><h4 type="number" data-setnum="{{setNum}}"
+                                                data-id="{{_id}}"
+                                                class="form-control setConfig" id="reps">
                                             {{#if reps}}{{reps}}{{else}}0{{/if}}</h4></th>
                                         <th><h4 type="number" data-setnum="{{setNum}}"
-                                                   data-id="{{_id}}" class="form-control setConfig" id="weight"
-                                                   >{{weight}}</h4> </th>
+                                                data-id="{{_id}}" class="form-control setConfig" id="weight"
+                                                >{{weight}}</h4></th>
                                     </tr>
                                 {{/each}}
 
@@ -62,4 +74,4 @@
         {{/each}}
     {{/each}}
 
-    </template>
+</template>

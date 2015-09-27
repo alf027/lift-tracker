@@ -4,42 +4,36 @@
     {{> pageHeading title='Profile' category='App views' }}
 
     <div class="wrapper wrapper-content">
-        <div class="row animated fadeInRight">
-            <div class="col-md-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>{{userProfile.firstName}} {{userProfile.lastName}}</h5>
-                        <!--<input class="pull-right" type="file" name="pic" accept="image/*">-->
-                    </div>
-                    <div>
+        <!--<div class="row animated fadeInRight">-->
+        <!--<div class="col-md-4">-->
+        <!--<div class="ibox float-e-margins">-->
+        <!--<div class="ibox-title">-->
+        <!---->
+        <!--&lt;!&ndash;<input class="pull-right" type="file" name="pic" accept="image/*">&ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div>&ndash;&gt;-->
 
-                        <div class="ibox-content profile-content">
-
-
-                            <!--<div class="ibox-content border-left-right">-->
-                                <!--<img alt="image" class="img-responsive centered" src="http://placehold.it/400x300">-->
-                            <!--</div>-->
+        <!--&lt;!&ndash;<div class="ibox-content profile-content">&ndash;&gt;-->
 
 
-                        <div class="user-button">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary btn-sm btn-block"><i
-                                            class="fa fa-envelope"></i> Send Message
-                                    </button>
-                                </div>
+        <!--&lt;!&ndash;<div class="ibox-content border-left-right">&ndash;&gt;-->
+        <!--&lt;!&ndash;<img alt="image" class="img-responsive centered" src="http://placehold.it/400x300">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
+
+        <!--&lt;!&ndash;<div class="user-button">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="col-md-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     {{>iboxTools}}
-                    <h4>Statistics</h4>
+                    <h4>Statistics for {{userProfile.firstName}} {{userProfile.lastName}}</h4>
                 </div>
                 <div class="ibox-content">
 
@@ -50,7 +44,7 @@
 
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     {{>iboxTools}}
@@ -71,5 +65,5 @@
 
         </div>
     </div>
-    </div>
+    <!--</div>-->
 </template>

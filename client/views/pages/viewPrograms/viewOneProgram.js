@@ -6,6 +6,7 @@ Template.viewOneProgram.helpers({
 
 Template.viewOneProgram.events({
     'click #active': function (events, template) {
+        event.preventDefault();
         var program = Programs.findOne({_id: Session.get('program')});
         var current = program.currentWorkout;
         Meteor.call('removeActivePrograms', Meteor.userId());
@@ -35,6 +36,8 @@ Template.viewOneProgram.events({
             console.log(cur);
             workout.insert(cur);
         }
+
+        Router.go('logWorkout');
         //programs.insert()
         //Meteor.call('clearActiveWorkouts', Meteor.userId);
 

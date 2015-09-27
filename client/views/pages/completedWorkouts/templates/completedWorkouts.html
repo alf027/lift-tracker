@@ -19,25 +19,29 @@
 
                         <!--<button type="button" id="loading-example-btn" class="btn btn-white btn-sm" ><i class="fa fa-refresh"></i> Refresh</button>-->
                     </div>
-                    <div class="col-md-6">
+                    <form class="form-inline">
+                        <div class="col-md-4">
 
-                        <label for="month">Month <input class='form-control' id="monthFilter" type="month"/></label>
-                        <!--<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">-->
-                        <!--<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>-->
-                    </div>
-                    <div class="col-md-3">
+                            <label for="month">Month <input class='form-control' id="monthFilter" type="month"/></label>
+                            <!--<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">-->
+                            <!--<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>-->
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Program Name
 
-                        <select class="form-control" id="programSelect" name="Program">
-                            <option value="" selected></option>
-                            <option value="None">No Program</option>
+                            <select class="form-control" id="programSelect" name="Program">
+                                <option value="" selected></option>
+                                <option value="None">No Program</option>
 
-                            {{#each programs}}
-                                <option class="programSelect" value="{{_id}}">{{name}}</option>
-                            {{/each}}
-                        </select>
-                        <!--<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">-->
-                        <!--<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>-->
-                    </div>
+                                {{#each programs}}
+                                    <option class="programSelect" value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+                            </label>
+                            <!--<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">-->
+                            <!--<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>-->
+                        </div>
+                    </form>
                 </div>
 
                 <div class="project-list">
@@ -68,7 +72,8 @@
                                     </td>
 
                                     <td class="project-actions">
-                                        <a href="/completedWorkouts/{{_id}}" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                                        <a href="/completedWorkouts/{{_id}}" class="btn btn-white btn-sm"><i
+                                                class="fa fa-folder"></i> View </a>
                                         <!--<a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>-->
                                     </td>
 
@@ -94,7 +99,8 @@
                                     </td>
 
                                     <td class="project-actions">
-                                        <a href="/completedWorkouts/{{_id}}" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                                        <a href="/completedWorkouts/{{_id}}" class="btn btn-white btn-sm"><i
+                                                class="fa fa-folder"></i> View </a>
                                         <!--<a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>-->
                                     </td>
 
@@ -113,26 +119,26 @@
     </div>
 
     <!--<div class="wrapper wrapper-content animated fadeInRight">-->
-        <!--<div class="row">-->
-            <!--<div class="col-lg-12">-->
-                <!--<div class="text-center m-t-lg">-->
-                    <!--<h2>-->
-                        <!--{{#each completedWorkouts}}-->
-                            <!--<h1>{{dateFinished}}</h1>-->
-                            <!--{{#each lifts}}-->
-                                <!--<h2>{{liftName}}</h2>-->
-                                <!--{{#each sets}}-->
-                                    <!--<h3>reps: {{reps}}</h3>-->
+    <!--<div class="row">-->
+    <!--<div class="col-lg-12">-->
+    <!--<div class="text-center m-t-lg">-->
+    <!--<h2>-->
+        <!--{{#each completedWorkouts}}-->
+    <!--<h1>{{dateFinished}}</h1>-->
+        <!--{{#each lifts}}-->
+        <!--<h2>{{liftName}}</h2>-->
+            <!--{{#each sets}}-->
+            <!--<h3>reps: {{reps}}</h3>-->
 
-                                    <!--<h3>weight: {{weight}}</h3>-->
-                                <!--{{/each}}-->
-                            <!--{{/each}}-->
+            <!--<h3>weight: {{weight}}</h3>-->
+                <!--{{/each}}-->
+            <!--{{/each}}-->
 
-                        <!--{{/each}}-->
-                    <!--</h2>-->
-                    <!--<small></small>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <!--{{/each}}-->
+    <!--</h2>-->
+    <!--<small></small>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 </template>
