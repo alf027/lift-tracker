@@ -69,4 +69,4 @@ Template.completedWorkouts.rendered = function () {
   Session.set('monthFilter', '');
   Session.set('yearFilter','');
 
-}
+};
