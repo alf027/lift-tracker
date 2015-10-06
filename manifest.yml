@@ -1,0 +1,13 @@
+---
+
+applications:
+
+- name: lift-tracker
+
+  memory: 512M
+
+  buildpack: https://github.com/csterwa/cf-meteor-buildpack.git
+
+  services:
+
+    - lift-tracker-mongo

@@ -2,10 +2,11 @@
  * Created by Alfano on 7/1/15.
  */
 Template.completedWorkouts.helpers({
+
   completedWorkouts: function () {
     if (Session.get('programId') === 'None') {
       console.log('none');
-      return CompletedWorkouts.find({programId: {$exists: false}})
+      return CompletedWorkouts.find({programId: {$exists: false}});
       //console.log(Session.get('programId'))
 
     } else if (Session.get('programId')) {
@@ -13,18 +14,21 @@ Template.completedWorkouts.helpers({
     } else if (Session.get('monthFilter')) {
       var filteredArr = [];
       var completed = CompletedWorkouts.find({}).fetch();
-      completed.forEach(function(e) {
+      completed.forEach(function (e) {
 
         var completedDate = e.dateFinished.split('-');
         var completedYear = completedDate[0];
         var completedMonth = completedDate[1];
-        console.log(completedMonth.length);
-        if(completedMonth.length == '1') {
+        //console.log(completedMonth.length);
+
+        if (completedMonth.length == '1') {
           completedMonth = '0' + completedMonth
         }
-        console.log('sesmonth',Session.get('monthFilter'))
-        console.log('locmonth',completedMonth);
-        if(completedMonth === Session.get('monthFilter')) {
+
+        //console.log('sesmonth', Session.get('monthFilter'));
+        //console.log('locmonth', completedMonth);
+
+        if (completedMonth === Session.get('monthFilter')) {
           filteredArr.push(e)
         }
 
@@ -35,6 +39,7 @@ Template.completedWorkouts.helpers({
     }
     return CompletedWorkouts.find();
   },
+
   programs: function () {
     return Programs.find();
   }
@@ -52,7 +57,8 @@ Template.completedWorkouts.events({
     Session.set('programId', event.target.value);
     console.log(Session.get('programId'))
   },
-  'change #monthFilter':function(event) {
+
+  'change #monthFilter': function (event) {
     console.log(event.target.value);
     var fullDate = event.target.value;
     console.log(fullDate.split('-'));
@@ -67,6 +73,6 @@ Template.completedWorkouts.events({
 Template.completedWorkouts.rendered = function () {
   Session.set('programId', '');
   Session.set('monthFilter', '');
-  Session.set('yearFilter','');
+  Session.set('yearFilter', '');
 
 };
